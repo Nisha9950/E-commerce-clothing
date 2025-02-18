@@ -1,0 +1,134 @@
+.method {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #fce3fe;
+}
+
+.payment-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    text-align: center;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.payment-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.payment-option {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.payment-option.active {
+    border-color: #007bff;
+    background-color: #e3f2fd;
+}
+
+.payment-option input {
+    margin-right: 10px;
+}
+
+.label-text {
+    flex-grow: 1;
+    display: flex;
+    font-size: 16px;
+}
+
+.credit-card-form {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.credit-card-form input,
+.credit-card-form select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.error {
+    color: red;
+    font-size: 12px;
+    text-align: left;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.buttons button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.return {
+    background-color: #6c757d;
+    color: white;
+}
+
+.continue {
+    background-color: #28a745;
+    color: white;
+}
+
+.return:hover {
+    background-color: #5a6268;
+}
+
+.continue:hover {
+    background-color: #218838;
+}
+
+.label-img{
+    width: 100px;
+    height: 100px;
+}
+
+.payment-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.upi-logo {
+    width: 50px;
+    height: auto;
+}
+
+
+.card-logos {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.card-logo {
+    width: 40px;  /* Adjust width as needed */
+    height: auto;
+}

@@ -1,17 +1,25 @@
-import React from 'react'
-import'./NewsLetter.css'
+import React, { useEffect } from 'react';
+import './NewsLetter.css';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
-const NewsLetter = () => {
+const NewLetter = () => {
+
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
+
   return (
     <div className='newsletter'>
-      <h1>Get Exclusive Offers On Your Email</h1>
-      <p>Subscribe to our newsletter and stay updated</p>
-    <div>
-    <input type='email' placeholder='Your Email id'/>
-    <button>Subscribe</button>
-    </div>
-    </div>
-  )
-}
+      <h1 data-aos="fade-up">Get Exclusive Offer On Your Email</h1>
+      <p data-aos="fade-up">Subscribe to our newsletter and stay updated</p>
 
-export default NewsLetter
+      <div data-aos="zoom-in-up">
+        <input type='email' placeholder='Your Email id' />
+        <button>Subscribe</button>
+      </div>
+    </div>
+  );
+};
+
+export default NewLetter;
