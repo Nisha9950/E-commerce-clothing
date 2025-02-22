@@ -11,6 +11,7 @@ const ProductDisplay = (props) => {
   const { product } = props;
   const { addToCart } = useContext(ShopContext);
   const [selectedSize, setSelectedSize] = useState(null);
+  const [toastShown, setToastShown] = useState(false); 
   const sizes = ["S", "M", "L", "XL", "XXL"];
   const navigate = useNavigate();
 
@@ -19,19 +20,40 @@ const ProductDisplay = (props) => {
   };
 
   const handleAddToCart = () => {
+    if (toastShown) return; // ✅ Prevent duplicate toasts
+
     if (!selectedSize) {
-      toast.warn("Please select a size!", { position: "top-right", autoClose: 2000 });
+      setToastShown(true);
+      toast.warn("Please select a size!", { 
+        position: "top-right", 
+        autoClose: 2000,
+        onClose: () => setToastShown(false) // ✅ Reset toast state after closing
+      });
       return;
     }
+
     addToCart(product.id, selectedSize);
-    toast.success("Added to cart successfully!", { position: "top-right", autoClose: 2000 });
+    setToastShown(true);
+    toast.success("Added to cart successfully!", { 
+      position: "top-right", 
+      autoClose: 2000,
+      onClose: () => setToastShown(false) 
+    });
   };
 
   const handleBuyNow = () => {
+    if (toastShown) return; // ✅ Prevent duplicate toasts
+
     if (!selectedSize) {
-      toast.warn("Please select a size!", { position: "top-right", autoClose: 2000 });
+      setToastShown(true);
+      toast.warn("Please select a size!", { 
+        position: "top-right", 
+        autoClose: 2000,
+        onClose: () => setToastShown(false)
+      });
       return;
     }
+
 
 
     const order = {

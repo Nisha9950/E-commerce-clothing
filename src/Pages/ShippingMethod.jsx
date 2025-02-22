@@ -1,6 +1,8 @@
 import { useState, useContext, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ShopContext } from "../Context/ShopContext";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./CSS/ShippingMethod.css";
 
 const ShippingMethod = () => {
@@ -48,7 +50,7 @@ const ShippingMethod = () => {
 
     const handleContinue = () => {
         if (isInformationFilled()) {
-            alert("Information successfully filled!");
+            toast.success("Information successfully filled!");
             navigate("/paymentmethod", {
                 state: {
                     productId: productData.productId,
@@ -60,7 +62,7 @@ const ShippingMethod = () => {
                 }
             });
         } else {
-            alert("Please fill in the required information.");
+            toast.error("Please fill in the required information.");
             navigate("/information");
         }
     };
@@ -111,7 +113,7 @@ const ShippingMethod = () => {
                     </div>
                 </div>
                 <div className="checkout-buttons">
-                    <Link to="/cart"><button className="return-button" >Return</button></Link>
+                    <Link to="/cart"><button className="return-button">Return</button></Link>
                     <button className="continue-button" onClick={handleContinue}>Continue</button>
                 </div>
             </div>

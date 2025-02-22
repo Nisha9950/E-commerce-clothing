@@ -21,7 +21,7 @@ import Information from './Pages/Information';
 import Thankyou from './Pages/Thankyou';
 import OrderTimeline from './Pages/OrderTimeline';
 import History from './Pages/History';
-import Profile from './Pages/Profile';
+// import Profile from './Pages/Profile';
 
 
 
@@ -43,13 +43,13 @@ function App() {
             <Route path=':productId' element={<Product />} />
 
           </Route>
-          <Route path='/profile' element={<Profile />} />
+          {/* <Route path='/profile' element={<Profile />} /> */}
           <Route path='/Cart' element={<Cart />} />
           <Route path='/login' element={<LoginSignup />} />
           <Route path='/signup' element={<Signup />} />
           <Route path='/forgotpassword' element={<Forget />} />
           <Route path='/information' element={<Information />} />
-          <Route path="/profile" element={<Profile />} />
+          {/* <Route path="/profile" element={<Profile />} /> */}
           <Route path="/history" element={<History />} />
 
           <Route path='/shippingmethod' element={<ShippingMethod />} />

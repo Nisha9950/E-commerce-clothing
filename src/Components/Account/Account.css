@@ -1,4 +1,4 @@
-.profile-container {
+/* .profile-container {
   position: relative;
   display: inline-block;
 }
@@ -36,4 +36,56 @@
 .logout {
   color: red;
   font-weight: bold;
+} */
+
+
+
+.profile-container {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-icon {
+  cursor: pointer;
+  margin-top:40px;
+
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 80px;
+  right: 0;
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 150px;
+  overflow: hidden;
+}
+
+.dropdown-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-menu li {
+  padding: 10px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.dropdown-menu li:hover {
+  background-color: #f0f0f0;
+  transform: scale(1.05);
+}
+
+.logout {
+  color: red;
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+}
+
+.logout:hover {
+  color: darkred;
 }

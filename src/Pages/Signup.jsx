@@ -11,6 +11,7 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [toastShown, setToastShown] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -21,15 +22,25 @@ const Signup = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (toastShown) return; // ✅ Prevent duplicate toasts
 
     if (!name || !email || !password) {
-      toast.error("All fields are required");
+      setToastShown(true);
+      toast.error("All fields are required", {
+        autoClose: 2000,
+        onClose: () => setToastShown(false), // ✅ Reset state when toast closes
+      });
       return;
     }
 
     if (!validatePassword(password)) {
+      setToastShown(true);
       toast.error(
-        "Password must be at least 6 characters long, contain one uppercase letter, and one special character."
+        "Password must be at least 6 characters long, contain one uppercase letter, and one special character.",
+        {
+          autoClose: 3000,
+          onClose: () => setToastShown(false),
+        }
       );
       return;
     }
@@ -40,7 +51,12 @@ const Signup = () => {
     // Store the email in localStorage
     localStorage.setItem("lastRegisteredEmail", email);
 
-    toast.success("Registration successful! Redirecting to login...");
+    setToastShown(true);
+    toast.success("Registration successful! Redirecting to login...", {
+      autoClose: 2000,
+      onClose: () => setToastShown(false),
+    });
+
     setTimeout(() => {
       navigate("/login");
     }, 2000);

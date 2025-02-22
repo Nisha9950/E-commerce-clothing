@@ -55,6 +55,16 @@ const PaymentMethod = () => {
                 }
             }
         }
+       
+        if (name === "cardNumber") {
+            value = value.replace(/\D/g, "").slice(0, 12); // Allow only digits, max length 12
+            value = value.replace(/(\d{4})/g, "$1 ").trim(); // Format with spaces every 4 digits
+            if (value.length < 12) {
+              newErrors.cardNumber = "Card number must be exactly 12 digits.";
+            } else {
+              delete newErrors.cardNumber;
+            }
+          }
 
         if (name === "nameOnCard") {
             const regex = /^[A-Za-z\s]*$/;
@@ -104,6 +114,7 @@ const PaymentMethod = () => {
 
         if (Object.keys(newErrors).length > 0) {
             setErrors(newErrors);
+            toast.dismiss();
             toast.error("Please fix the errors before proceeding.");
             return;
         }
